@@ -1092,6 +1092,8 @@ class RoutingModel {
   /// Returns the global cost variable which is being minimized.
   IntVar* CostVar() const { return cost_; }
 
+  void OverrideCostVar(IntVar* value) { cost_ = value; }
+
   /// Returns the cost of the transit arc between two nodes for a given vehicle.
   /// Input are variable indices of node. This returns 0 if vehicle < 0.
   int64 GetArcCostForVehicle(int64 from_index, int64 to_index,
