@@ -21,7 +21,7 @@ PROTOC_BINARY := $(shell $(WHICH) ${UNIX_PROTOC_BINARY})
 # Tags of dependencies to checkout.
 GFLAGS_TAG = 2.2.2
 GLOG_TAG = 0.4.0
-PROTOBUF_TAG = 3.9.0
+PROTOBUF_TAG = 3.10.0
 ABSL_TAG = bf29470
 CBC_TAG = 2.10.3
 CGL_TAG = 0.60.2
@@ -763,6 +763,9 @@ SWIG_BINARY = $(shell $(WHICH) $(UNIX_SWIG_BINARY))
 #$(error "Can't find $(UNIX_SWIG_BINARY). Please verify UNIX_SWIG_BINARY")
 SWIG_VERSION = $(shell $(SWIG_BINARY) -version | grep Version | cut -d " " -f 3)
 ifeq ("$(SWIG_VERSION)","4.0.0")
+SWIG_DOXYGEN = -doxygen
+endif
+ifeq ("$(SWIG_VERSION)","4.0.1")
 SWIG_DOXYGEN = -doxygen
 endif
 
